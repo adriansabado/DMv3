@@ -1,0 +1,18 @@
+Negros Island Region|Negros Occidental|Negros Oriental
+National Capital Region|Metropolitan Manila
+Cordillera Administrative Region|Abra|Apayao|Benguet|Ifugao|Kalinga|Mountain Province
+I - Ilocos Region|Ilocos Norte|Ilocos Sur|La Union|Pangasinan
+II - Cagayan Valley|Batanes|Cagayan|Isabela|Nueva Vizcaya|Quirino
+III - Central Luzon|Aurora|Bataan|Bulacan|Nueva Ecija|Pampanga|Tarlac|Zambales
+IV-A - CALABARZON|Batangas|Cavite|Laguna|Quezon|Rizal
+MIMAROPA Region|Marinduque|Occidental Mindoro|Oriental Mindoro|Palawan|Romblon
+V - Bicol|Albay|Camarines Norte|Camarines Sur|Catanduanes|Masbate|Sorsogon
+VI - Western Visayas|Aklan|Antique|Capiz|Guimaras|Iloilo
+VII - Central Visayas|Bohol|Cebu|Siquijor
+VIII - Eastern Visayas|Biliran|Eastern Samar|Leyte|Northern Samar|Samar|Southern Leyte
+IX - Zamboanga Peninsula|Isabela|Zamboanga del Norte|Zamboanga del Sur|Zamboanga Sibugay
+X - Northern Mindanao|Bukidnon|Camiguin|Lanao del Norte|Misamis Occidental|Misamis Oriental
+XI - Davao Region|Compostela Valley|Davao del Norte|Davao del Sur|Davao Oriental
+XII - Soccsksargen|North Cotabato|South Cotabato|Sarangani|Sultan Kudarat
+XIII - Caraga|Agusan del Norte|Agusan del Sur|Dinagat Islands|Surigao del Norte|Surigao del Sur
+ARMM|Basilan|Lanao del Sur|Maguindanao|Sulu|Tawi-Tawi
