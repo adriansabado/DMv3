@@ -23,7 +23,7 @@ public class Predict_Dist {
 			command.append("graph <- append(graph, mean(as.vector(predictionmp"+ i +")[!is.na(as.vector(predictionmp"+ i +"))]))\n");
 		}
 		command.append("png(\"" + System.getProperty("user.dir").replace('\\', '/') + "/pictures/graph.png\")\n");
-        command.append("plot(seq(1,length(graph)), graph)\n");
+        command.append("plot(seq(1,length(graph)), graph, xlab = 'Year', ylab = 'Likelihood')\n");
         command.append("lines(seq(1,length(graph)), graph)\n");
         command.append("dev.off()\n");
         try {
@@ -77,7 +77,7 @@ public class Predict_Dist {
 			command.append("prediction" + filename + "<- mask(x=cr, mask=fr)\n");
 			
 			command.append("png(\"" + System.getProperty("user.dir").replace('\\', '/') + "/pictures/prediction"+ filename +".png\")\n");
-            command.append("plot(prediction"+ filename +")\n");
+            command.append("plot(prediction"+ filename +", xlab = 'Longitude', ylab = 'Latitude')\n");
             command.append("plot(ph, add = T)\n");
             command.append("dev.off()\n");
             

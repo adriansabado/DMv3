@@ -20,12 +20,6 @@ public class MP_Displayer {
 	 * Create the application.
 	 */
 	public MP_Displayer(ArrayList<String> images) {
-		//this.images = images;
-		
-		images = new ArrayList<String>();
-		
-		images.add("pictures/predictionmp0.png");
-		images.add("pictures/graph.png");
 		
 		this.images = images;
 		
@@ -65,6 +59,7 @@ public class MP_Displayer {
 		
 		System.out.println(images.size());
 		GIF_Test predictions = new GIF_Test(images);
+		displayPanel.removeAll();
 		displayPanel.add(predictions, "cell 0 0, grow, align center");
 		
 		

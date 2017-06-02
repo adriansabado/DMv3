@@ -16,7 +16,7 @@ public class EnviVarValidator {
 		this.enviVars = enviVars;
 	}
 	
-	private boolean areEnviVarValid() {
+	public boolean areEnviVarValid() {
 		StringBuilder command;
 		for(int i = 0; i < enviVars.length; i++) {
 			try {

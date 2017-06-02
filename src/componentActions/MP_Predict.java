@@ -55,47 +55,20 @@ public class MP_Predict implements ActionListener {
 			}
 		}
 		if(!error) {
+			error = false;
 			if(defaultModel.isSelected()) {
 				ArrayList<String> imagePaths = new ArrayList<String>();
 				for(int i = 0; i < tfEV.size(); i++) {
 					FileParser parser = new FileParser();
 					File[] EV = parser.textFieldParser(tfEV.get(i));
 					predict = new Predict_Dist(EV, System.getProperty("user.dir").replace('\\', '/') +"/model/model.rds", "mp" + i, c);
+					if(!error && predict.getError()) error = true;
 					imagePaths.add("pictures/predictionmp" + i + ".png");
 				}
-				MP_Displayer displayer = new MP_Displayer(imagePaths);
-				predict.getGraph(tfEV.size(), c);
-				try {
-					BufferedImage graph = ImageIO.read(new File("pictures/graph.png"));
-					JLabel picLabel = new JLabel(new ImageIcon(graph));
-					
-					graphPanel.removeAll();
-					graphPanel.setLayout(new MigLayout("", "[grow]", "[grow]"));
-					graphPanel.add(picLabel, "cell 0 0, grow, align center");
-					graphPanel.repaint();
-					graphPanel.revalidate();
-					
-					filterBox.setEnabled(true);
-					display.setEnabled(true);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					JOptionPane.showMessageDialog(null, "graph.png is missing", "Error", JOptionPane.ERROR_MESSAGE);
-				}
-				
-			}
-			else {
-				if(tfMod.getText().equals("")) {
-					JOptionPane.showMessageDialog(null, "No model selected", "Warning", JOptionPane.WARNING_MESSAGE);
+				if(error){
+					JOptionPane.showMessageDialog(null, "There's a problem with some of your environmental variables. Please recheck", "Error", JOptionPane.ERROR_MESSAGE);
 				}
 				else {
-					//Predict
-					ArrayList<String> imagePaths = new ArrayList<String>();
-					for(int i = 0; i < tfEV.size(); i++) {
-						FileParser parser = new FileParser();
-						File[] EV = parser.textFieldParser(tfEV.get(i));
-						predict = new Predict_Dist(EV, tfMod.getText().replace('\\', '/'), "mp" + i, c);
-						imagePaths.add("pictures/predictionmp" + i + ".png");
-					}
 					MP_Displayer displayer = new MP_Displayer(imagePaths);
 					predict.getGraph(tfEV.size(), c);
 					try {
@@ -113,6 +86,47 @@ public class MP_Predict implements ActionListener {
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						JOptionPane.showMessageDialog(null, "graph.png is missing", "Error", JOptionPane.ERROR_MESSAGE);
+					}
+				}
+				
+			}
+			else {
+				if(tfMod.getText().equals("")) {
+					JOptionPane.showMessageDialog(null, "No model selected", "Warning", JOptionPane.WARNING_MESSAGE);
+				}
+				else {
+					//Predict
+					ArrayList<String> imagePaths = new ArrayList<String>();
+					error = false;
+					for(int i = 0; i < tfEV.size(); i++) {
+						FileParser parser = new FileParser();
+						File[] EV = parser.textFieldParser(tfEV.get(i));
+						predict = new Predict_Dist(EV, tfMod.getText().replace('\\', '/'), "mp" + i, c);
+						if(!error && predict.getError()) error = true;
+						imagePaths.add("pictures/predictionmp" + i + ".png");
+					}
+					if(error){
+						JOptionPane.showMessageDialog(null, "There's a problem with some of your environmental variables. Please recheck", "Error", JOptionPane.ERROR_MESSAGE);
+					}
+					else {
+						MP_Displayer displayer = new MP_Displayer(imagePaths);
+						predict.getGraph(tfEV.size(), c);
+						try {
+							BufferedImage graph = ImageIO.read(new File("pictures/graph.png"));
+							JLabel picLabel = new JLabel(new ImageIcon(graph));
+							
+							graphPanel.removeAll();
+							graphPanel.setLayout(new MigLayout("", "[grow]", "[grow]"));
+							graphPanel.add(picLabel, "cell 0 0, grow, align center");
+							graphPanel.repaint();
+							graphPanel.revalidate();
+							
+							filterBox.setEnabled(true);
+							display.setEnabled(true);
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							JOptionPane.showMessageDialog(null, "graph.png is missing", "Error", JOptionPane.ERROR_MESSAGE);
+						}
 					}
 				}
 			}

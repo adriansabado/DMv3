@@ -38,14 +38,13 @@ public class Filter_Results {
 			command.append("\n");
 			
 			command.append("png(\"" + System.getProperty("user.dir").replace('\\', '/') + "/pictures/filter"+ filename +".png\")\n");
-            command.append("plot(filter"+ filename +")\n");
+            command.append("plot(filter"+ filename +", xlab = 'Longitude', ylab = 'Latitude')\n");
             command.append("plot(filter, add = T)\n");
             command.append("dev.off()\n");
 			
 			c.eval(command.toString());
 			
 			ImageDisplayer image = new ImageDisplayer("pictures/filter" + filename + ".png", filename);
-			ImageDisplayer image2 = new ImageDisplayer("pictures/graph.png", filename);
 		} catch (RserveException e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();
