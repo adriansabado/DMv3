@@ -43,12 +43,12 @@ public class SP_Predict implements ActionListener{
 		}
 		else if(defaultModel.isSelected()) {
 			//Predict
-			filterBox.setEnabled(true);
-			filterBtn.setEnabled(true);
 			FileParser parser = new FileParser();
 			File[] EV = parser.textFieldParser(tfEV);
 			Predict_Dist predict = new Predict_Dist(EV, System.getProperty("user.dir").replace('\\', '/') +"/model/model.rds", "sp", c);
 			if(!predict.getError()) {
+				filterBox.setEnabled(true);
+				filterBtn.setEnabled(true);
 				ImageDisplayer image = new ImageDisplayer("pictures/prediction" + "sp" + ".png", "sp");
 			}
 		}
@@ -58,12 +58,12 @@ public class SP_Predict implements ActionListener{
 			}
 			else {
 				//Predict
-				filterBox.setEnabled(true);
-				filterBtn.setEnabled(true);
 				FileParser parser = new FileParser();
 				File[] EV = parser.textFieldParser(tfEV);
 				Predict_Dist predict = new Predict_Dist(EV, tfMod.getText().replace('\\', '/'), "sp", c);
 				if(!predict.getError()) {
+					filterBox.setEnabled(true);
+					filterBtn.setEnabled(true);
 					ImageDisplayer image = new ImageDisplayer("pictures/prediction" + "sp" + ".png", "sp");
 				}
 			}

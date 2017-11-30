@@ -90,8 +90,9 @@ public class Predict_Dist {
 				c.eval(command.toString());
 			} catch (RserveException e) {
 				// TODO Auto-generated catch block
-//				e.printStackTrace();
-				JOptionPane.showMessageDialog(null, "Error while predicting", "Error", JOptionPane.ERROR_MESSAGE);
+				e.printStackTrace();
+				JOptionPane.showMessageDialog(null, "Error while predicting1", "Error", JOptionPane.ERROR_MESSAGE);
+				error = true;
 			}
             
             

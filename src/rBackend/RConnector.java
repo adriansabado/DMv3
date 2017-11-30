@@ -1,8 +1,7 @@
 package rBackend;
 
+import java.io.File;
 import java.io.IOException;
-
-import javax.swing.JOptionPane;
 
 import org.rosuda.REngine.Rserve.RConnection;
 import org.rosuda.REngine.Rserve.RserveException;
@@ -39,13 +38,16 @@ public class RConnector {
 	public void startRConnection() {
 		try {
 			Process pro = null;
-			ProcessBuilder pb = new ProcessBuilder("RScript","assets/InitRserve.txt");
+			
+			ProcessBuilder pb = new ProcessBuilder("RScript", "assets\\InitRserve.txt");
+			System.out.println(System.getProperty("user.dir"));
 			
 			pro = pb.start();
 			pro.waitFor();
 			pro.destroy();
 		}
 		catch(IOException io) {
+			io.printStackTrace();
 			System.out.println("IOException starting Rserve");
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
